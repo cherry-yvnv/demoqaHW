@@ -26,8 +26,7 @@ public class JavaBasics {
         System.out.println(C <= B);
 
         System.out.println(D * D);
-        System.out.println(D / D);
-        System.out.println(A + D);
+
     }
 }
 
