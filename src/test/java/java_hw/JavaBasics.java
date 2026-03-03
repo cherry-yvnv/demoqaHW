@@ -1,4 +1,4 @@
-package JavaHW;
+package java_hw;
 
 public class JavaBasics {
     public static void main(String[] args) {

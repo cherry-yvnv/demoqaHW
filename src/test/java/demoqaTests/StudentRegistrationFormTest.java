@@ -20,6 +20,10 @@ public class StudentRegistrationFormTest {
     @Test
     void successfulRegistrationFormTest() {
         open("/automation-practice-form");
+        executeJavaScript("""
+        document.getElementById('fixedban')?.remove();
+        document.querySelector('footer')?.remove();
+        """);
         $("#firstName").setValue("Britney");
         $("#lastName").setValue("Spears");
         $("#userEmail").setValue("britney@spears.com");

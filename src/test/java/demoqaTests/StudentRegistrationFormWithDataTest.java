@@ -1,9 +1,9 @@
 package demoqaTests;
 
-import TestData.TestBase;
+import test_data.TestBase;
 import org.junit.jupiter.api.Test;
 
-import static TestData.TestData.*;
+import static test_data.TestData.*;
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
