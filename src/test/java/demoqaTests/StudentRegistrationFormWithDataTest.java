@@ -3,18 +3,21 @@ package demoqaTests;
 import test_data.TestBase;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Selenide.*;
 import static test_data.TestData.*;
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 public class StudentRegistrationFormWithDataTest extends TestBase {
 
     @Test
     void successfulRegistrationFormTest() {
         open("/automation-practice-form");
+        executeJavaScript("""
+        document.getElementById('fixedban')?.remove();
+        document.querySelector('footer')?.remove();
+        """);
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue(userEmail);
