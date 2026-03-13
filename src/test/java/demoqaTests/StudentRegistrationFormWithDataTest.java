@@ -38,11 +38,5 @@ public class StudentRegistrationFormWithDataTest extends TestBase {
                .checkForm("Picture", picture)
                .checkForm("State and City", state+" "+city)
                .closeForm();
-
-
-
-
-
-
     }
 }
