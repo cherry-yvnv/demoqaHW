@@ -38,7 +38,6 @@ public class StudentRegistrationFormPage {
         return this;
     }
 
-
     public StudentRegistrationFormPage typeFirstName(String value) {
         firstNameInput.setValue(value);
         return this;
