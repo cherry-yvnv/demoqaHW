@@ -17,12 +17,14 @@ public class ResultComponent {
         resultWindow.should(appear);
 
     }
-    public static void  checkResult(String key, String value) {
+
+    public static void checkResult(String key, String value) {
         tableOutput.$(byText(key)).parent().shouldHave(text(value));
 
 
     }
-    public static void  closeWindow() {
+
+    public static void closeWindow() {
         closeButton.click();
 
 

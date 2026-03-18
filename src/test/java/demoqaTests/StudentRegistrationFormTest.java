@@ -16,9 +16,9 @@ public class StudentRegistrationFormTest extends TestBase {
     void successfulRegistrationFormTest() {
         open("/automation-practice-form");
         executeJavaScript("""
-        document.getElementById('fixedban')?.remove();
-        document.querySelector('footer')?.remove();
-        """);
+                document.getElementById('fixedban')?.remove();
+                document.querySelector('footer')?.remove();
+                """);
         $("#firstName").setValue("Britney");
         $("#lastName").setValue("Spears");
         $("#userEmail").setValue("britney@spears.com");
@@ -39,8 +39,8 @@ public class StudentRegistrationFormTest extends TestBase {
         $("#submit").click();
 
         $(".modal-open").should(appear);
-        $(".table-responsive") .shouldHave(text("Britney"));
-        $(".table-responsive") .shouldHave(text("Spears"));
+        $(".table-responsive").shouldHave(text("Britney"));
+        $(".table-responsive").shouldHave(text("Spears"));
         $(".table-responsive").shouldHave(text("britney@spears.com"));
         $(".table-responsive").shouldHave(text("Female"));
         $(".table-responsive").shouldHave(text("8987654321"));

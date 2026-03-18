@@ -27,12 +27,17 @@ public class StudentRegistrationFormPage {
 
     public StudentRegistrationFormPage openPage() {
         open("/automation-practice-form");
+        return this;
+    }
+
+    public StudentRegistrationFormPage hideBanners() {
         executeJavaScript("""
                 document.getElementById('fixedban')?.remove();
                 document.querySelector('footer')?.remove();
                 """);
         return this;
     }
+
 
     public StudentRegistrationFormPage typeFirstName(String value) {
         firstNameInput.setValue(value);
@@ -107,10 +112,12 @@ public class StudentRegistrationFormPage {
         submitButton.click();
         return this;
     }
+
     public StudentRegistrationFormPage resultWindowAppear() {
         ResultComponent.checkResultWindow();
         return this;
     }
+
     public StudentRegistrationFormPage checkForm(String key, String value) {
         ResultComponent.checkResult(key, value);
         return this;
