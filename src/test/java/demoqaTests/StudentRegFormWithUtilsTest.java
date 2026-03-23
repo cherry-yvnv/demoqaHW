@@ -5,10 +5,10 @@ import test_data.TestBase;
 import org.junit.jupiter.api.Test;
 
 
-import static test_data.TestData.*;
+import static test_data.FakerData.*;
 
 
-public class StudentRegistrationFormWithDataTest extends TestBase {
+public class StudentRegFormWithUtilsTest extends TestBase {
     StudentRegistrationFormPage studentRegistrationFormPage = new StudentRegistrationFormPage();
     @Test
     void successfulRegistrationFormTest() {
@@ -38,6 +38,8 @@ public class StudentRegistrationFormWithDataTest extends TestBase {
                 .checkForm("Address", currentAddress)
                 .checkForm("Picture", picture)
                 .checkForm("State and City", state + " " + city)
-                .closeForm();
+                //.closeForm()
+        ;
+
     }
 }

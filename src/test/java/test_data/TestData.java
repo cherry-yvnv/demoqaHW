@@ -11,7 +11,7 @@ public class TestData {
     public static String day = "04";
     public static String subject = "Maths";
     public static String hobby = "Music";
-    public static String picture = "img.png";
+    public static String picture = "britney.png";
     public static String currentAddress = "San-Andreas";
     public static String state = "NCR";
     public static String city = "Gurgaon";

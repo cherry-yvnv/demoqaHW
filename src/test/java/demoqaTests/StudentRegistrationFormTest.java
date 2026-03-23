@@ -30,7 +30,7 @@ public class StudentRegistrationFormTest extends TestBase {
         $(".react-datepicker__day.react-datepicker__day--004").click();
         $("#subjectsInput").setValue("Maths").pressEnter();
         $("#hobbies-checkbox-3").click();
-        $("#uploadPicture").uploadFromClasspath("img.png");
+        $("#uploadPicture").uploadFromClasspath("britney.png");
         $("#currentAddress").setValue("San-Andreas");
         $("#state").click();
         $(byText("NCR")).click();
@@ -48,7 +48,7 @@ public class StudentRegistrationFormTest extends TestBase {
         $(".table-responsive").shouldHave(text("Maths"));
         $(".table-responsive").shouldHave(text("Music"));
         $(".table-responsive").shouldHave(text("San-Andreas"));
-        $(".table-responsive").shouldHave(text("img.png"));
+        $(".table-responsive").shouldHave(text("britney.png"));
         $(".table-responsive").shouldHave(text("NCR Gurgaon"));
         $("#closeLargeModal").click();
 
