@@ -16,6 +16,7 @@ public class StudentRegistrationFormPage {
     private SelenideElement genderContainer = $("#genterWrapper");
     private SelenideElement userNumberInput = $("#userNumber");
     CalendarComponent calendar = new CalendarComponent();
+    ResultComponent resultComponent = new ResultComponent();
     private SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
     private SelenideElement subjectsInput = $("#subjectsInput");
     private SelenideElement hobbiesWrapper = $("#hobbiesWrapper");
@@ -114,17 +115,17 @@ public class StudentRegistrationFormPage {
     }
 
     public StudentRegistrationFormPage resultWindowAppear() {
-        ResultComponent.checkResultWindow();
+        resultComponent.checkResultWindow();
         return this;
     }
 
     public StudentRegistrationFormPage checkForm(String key, String value) {
-        ResultComponent.checkResult(key, value);
+        resultComponent.checkResult(key, value);
         return this;
     }
 
     public StudentRegistrationFormPage closeForm() {
-        ResultComponent.closeWindow();
+        resultComponent.closeWindow();
         return this;
     }
 }
