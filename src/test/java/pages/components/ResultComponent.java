@@ -8,25 +8,20 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class ResultComponent {
-    private static SelenideElement resultWindow = $(".modal-open");
-    private static SelenideElement tableOutput = $(".table-responsive");
-    private static SelenideElement closeButton = $("closeLargeModal");
+    private SelenideElement resultWindow = $(".modal-open");
+    private SelenideElement tableOutput = $(".table-responsive");
+    private SelenideElement closeButton = $("closeLargeModal");
 
 
-    public static void checkResultWindow() {
+    public void checkResultWindow() {
         resultWindow.should(appear);
-
     }
 
-    public static void checkResult(String key, String value) {
+    public void checkResult(String key, String value) {
         tableOutput.$(byText(key)).parent().shouldHave(text(value));
-
-
     }
 
-    public static void closeWindow() {
+    public  void closeWindow() {
         closeButton.click();
-
-
     }
 }
