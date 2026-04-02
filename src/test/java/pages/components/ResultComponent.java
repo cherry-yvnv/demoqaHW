@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class ResultComponent {
     private SelenideElement resultWindow = $(".modal-open");
     private SelenideElement tableOutput = $(".table-responsive");
-    private SelenideElement closeButton = $("closeLargeModal");
+    private SelenideElement closeButton = $("#closeLargeModal");
 
 
     public void checkResultWindow() {

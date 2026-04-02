@@ -22,7 +22,7 @@ public class StudentRegistrationFormWithDataTest extends TestBase {
                 .typeUserNumber(userNumber)
                 .setDateOfBirth (day,month,year)
                 .setSubjects(subject)
-                .setHobby()
+                .setHobby(hobby)
                 .uploadPicture(picture)
                 .setCurrentAddress(currentAddress)
                 .chooseStateAndCity(state, city)

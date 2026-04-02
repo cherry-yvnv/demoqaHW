@@ -18,7 +18,7 @@ public class StudentRegistrationFormPage {
     ResultComponent resultComponent = new ResultComponent();
     private SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
     private SelenideElement subjectsInput = $("#subjectsInput");
-    private SelenideElement hobbyCheckbox = $("#hobbies-checkbox-3");
+    private SelenideElement hobbiesWrapper = $("#hobbiesWrapper");
     private SelenideElement pictureInput = $("#uploadPicture");
     private SelenideElement currentAddressInput = $("#currentAddress");
     private SelenideElement stateList = $("#state");
@@ -75,8 +75,8 @@ public class StudentRegistrationFormPage {
         return this;
     }
 
-    public StudentRegistrationFormPage setHobby() {
-        hobbyCheckbox.click();
+    public StudentRegistrationFormPage setHobby(String hobby) {
+        hobbiesWrapper.$(byText(hobby)).click();
         return this;
     }
 
