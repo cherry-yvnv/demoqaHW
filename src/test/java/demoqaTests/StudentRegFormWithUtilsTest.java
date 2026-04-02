@@ -1,43 +1,45 @@
 package demoqaTests;
 
 import pages.StudentRegistrationFormPage;
+import test_data.FakerData;
+import test_data.GeneratedData;
 import test_data.TestBase;
 import org.junit.jupiter.api.Test;
 
 
-import static test_data.FakerData.*;
-
-
 public class StudentRegFormWithUtilsTest extends TestBase {
     StudentRegistrationFormPage studentRegistrationFormPage = new StudentRegistrationFormPage();
+    FakerData fakerData = new FakerData();
+    GeneratedData genData = new GeneratedData(fakerData);
+
     @Test
     void successfulRegistrationFormTest() {
         studentRegistrationFormPage
                 .openPage()
                 .hideBanners()
-                .typeFirstName(firstName)
-                .typeLastName(lastName)
-                .typeUserEmail(userEmail)
-                .setGender(sex)
-                .typeUserNumber(userNumber)
-                .setDateOfBirth (day,month,year)
-                .setSubjects(subject)
-                .setHobby(hobby)
-                .uploadPicture(picture)
-                .setCurrentAddress(currentAddress)
-                .chooseStateAndCity(state, city)
+                .typeFirstName(genData.firstNameF)
+                .typeLastName(genData.firstNameF)
+                .typeUserEmail(genData.userEmailF)
+                .setGender(genData.sexF)
+                .typeUserNumber(genData.userNumberF)
+                .setDateOfBirth (genData.dayF,genData.monthF,genData.yearF)
+                .setSubjects(genData.subjectF)
+                .setHobby(genData.hobbyF)
+                .uploadPicture(genData.pictureF)
+                .setCurrentAddress(genData.currentAddressF)
+                .chooseStateAndCity(genData.stateF,genData.cityF)
                 .submitForm()
                 .resultWindowAppear()
-                .checkForm("Student Name", firstName + " " + lastName)
-                .checkForm("Student Email", userEmail)
-                .checkForm("Gender", sex)
-                .checkForm("Mobile", userNumber)
-                .checkForm("Date of Birth", day + " " + month + "," + year)
-                .checkForm("Subjects", subject)
-                .checkForm("Hobbies", hobby)
-                .checkForm("Address", currentAddress)
-                .checkForm("Picture", picture)
-                .checkForm("State and City", state + " " + city)
+                .checkForm("Student Name", genData.firstNameF + " " + genData.firstNameF)
+                .checkForm("Student Email", genData.userEmailF)
+                .checkForm("Gender", genData.sexF)
+                .checkForm("Mobile", genData.userNumberF)
+                .checkForm("Date of Birth", genData.dayF + " " + genData.monthF + "," + genData.yearF)
+                .checkForm("Subjects", genData.subjectF)
+                .checkForm("Hobbies", genData.hobbyF)
+                .checkForm("Address", genData.currentAddressF)
+                .checkForm("Picture", genData.pictureF)
+                .checkForm("State and City", genData.stateF + " " + genData.cityF)
                 //.closeForm()
         ;
 

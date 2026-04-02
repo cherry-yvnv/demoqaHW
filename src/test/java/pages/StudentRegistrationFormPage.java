@@ -6,7 +6,7 @@ import pages.components.ResultComponent;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static test_data.FakerData.hobby;
+import test_data.FakerData.*;
 
 public class StudentRegistrationFormPage {
     //Elements
