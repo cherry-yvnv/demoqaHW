@@ -23,7 +23,5 @@ public class ResultComponent {
 
     public  void closeWindow() {
         closeButton.click();
-
-
     }
 }
