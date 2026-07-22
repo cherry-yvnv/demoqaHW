@@ -14,11 +14,7 @@ public class StudentRegistrationFormTest extends TestBase {
 
     @Test
     void successfulRegistrationFormTest() {
-        open("/automation-practice-form");
-        executeJavaScript("""
-                document.getElementById('fixedban')?.remove();
-                document.querySelector('footer')?.remove();
-                """);
+
         $("#firstName").setValue("Britney");
         $("#lastName").setValue("Spears");
         $("#userEmail").setValue("britney@spears.com");
@@ -51,6 +47,53 @@ public class StudentRegistrationFormTest extends TestBase {
         $(".table-responsive").shouldHave(text("britney.png"));
         $(".table-responsive").shouldHave(text("NCR Gurgaon"));
         $("#closeLargeModal").click();
+
+    }
+
+
+    @Test
+    void successfulRegistrationWithOnlyRequiredFieldsTest() {
+
+        $("#firstName").setValue("John");
+        $("#lastName").setValue("Doe");
+        $("#genterWrapper").$(byText("Male")).click();
+        $("#userNumber").setValue("1234567890");
+        $("#submit").click();
+        $(".modal-open").should(appear);
+
+        $(".table-responsive").shouldHave(text("John"));
+        $(".table-responsive").shouldHave(text("Doe"));
+        $(".table-responsive").shouldHave(text("Male"));
+        $(".table-responsive").shouldHave(text("1234567890"));
+        $("#closeLargeModal").click();
+    }
+
+    @Test
+    void negativeRegistrationNoDataTest() {
+        $("#submit").click();
+        $(".modal-open").shouldNot(appear);
+    }
+
+    @Test
+    void negativeRegistrationInvalidPhoneTest() {
+        $("#firstName").setValue("John");
+        $("#lastName").setValue("Doe");
+        $("#genterWrapper").$(byText("Male")).click();
+        $("#userNumber").setValue("123");
+        $("#submit").click();
+        $(".modal-open").shouldNot(appear);
+    }
+
+    @Test
+    void negativeRegistrationInvalidEmailTest() {
+        $("#firstName").setValue("John");
+        $("#lastName").setValue("Doe");
+        $("#userEmail").setValue("hello");
+        $("#genterWrapper").$(byText("Male")).click();
+        $("#userNumber").setValue("1234567890");
+        $("#submit").click();
+        $(".modal-open").shouldNot(appear);
+
 
     }
 }
