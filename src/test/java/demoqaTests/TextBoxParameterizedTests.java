@@ -1,6 +1,11 @@
 package demoqaTests;
 
 
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 import test_data.EmailType;
@@ -10,12 +15,31 @@ import test_data.UserData;
 import java.util.stream.Stream;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxParameterizedTests extends TestBase {
 
+    @BeforeAll
+    static void setupSelenideConfig() {
+        Configuration.browserSize = "1920x1080";
+        Configuration.baseUrl = "https://demoqa.com";
+    }
 
+    @BeforeEach
+    void setupTest() {
+
+        open("/text-box");
+
+        executeJavaScript("""
+                document.getElementById('fixedban')?.remove();
+                document.querySelector('footer')?.remove();
+                """);
+    }
+
+    @AfterEach
+    void afterEach() {
+        Selenide.closeWebDriver();
+    }
 
     @ParameterizedTest(name = "Тест с пользователем: {0} {1}")
     @CsvSource({
